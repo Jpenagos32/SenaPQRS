@@ -14,6 +14,18 @@ el proyecto
 
 3. Una vez instaladas todas las dependencias necesarias debemos correr el comando `npm run dev` en la terminal, esto levantará el proyecto dentro de la misma terminal podemos escribir la letra `o` y presionar la tecla `Enter` de esta forma nos abrirá el navegador por defecto con la página del proyecto
 
+## Pantallazos del proyecto
+### Landing page
+<img src='./Pantallazos/landing.jpeg' >
+
+### Formulario de radicación de PQRS
+
+<img src='./Pantallazos/pqrs.jpeg'>
+
+### Modal dentro del formulario de PQR
+
+<img src='./Pantallazos/modal.jpeg'>
+
 
 ## Informacion de framework
 
