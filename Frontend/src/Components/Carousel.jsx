@@ -14,7 +14,7 @@ const CarouselAap = () => {
         images.map((image) => {
           return (
             <Carousel.Item key={image.url}>
-              <img src={image.url} alt="" width={'100%'} />
+              <img src={image.url} alt="" style={{ width: 'auto', maxWidth: '100%' }} />
             </Carousel.Item>
           )
         })
