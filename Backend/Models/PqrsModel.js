@@ -26,7 +26,9 @@ export class PqrsModel {
 
       return result
     } catch (error) {
-      throw new Error('Error Inserting data')
+      if (error.message.includes('duplicate key')) { throw new Error('Duplicated key') }
+      if (error.message.includes('validation')) { throw new Error(error.message) }
+      throw new Error('Internal Server Error')
     } finally {
       client.close()
     }

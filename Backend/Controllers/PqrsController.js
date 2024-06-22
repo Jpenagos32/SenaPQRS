@@ -1,3 +1,5 @@
+import { validatePutPqrs } from '../Utils/Validators/pqrsValidator.js'
+
 export class PqrsController {
   constructor ({ pqrsModel }) {
     this.pqrsModel = pqrsModel
@@ -16,20 +18,16 @@ export class PqrsController {
   }
 
   createPqrs = async (req, res) => {
-    const data = {
-      tipo_peticion: 'Probando Más',
-      correo: 'correo3@correo.com',
-      nombre_completo: 'Julian Andres Penagos 2',
-      tipo_identificacion: 'Cedula de ciudadania',
-      numero_identificacion: 1061804790,
-      descripcion: 'tengo problemas de alcantarillado, como puedo solucionarlos? nuevo'
+    const data = validatePutPqrs(req.body)
+    if (data.error) {
+      return res.status(400).json(data.error.issues)
     }
 
     try {
-      const result = await this.pqrsModel.newPqrs(data)
-      res.json({ message: `Se creo correctamente con el id ${result.insertedId}` })
+      const result = await this.pqrsModel.newPqrs(data.data)
+      res.status(200).json({ message: `Se creo correctamente con el id ${result.insertedId}` })
     } catch (error) {
-      res.status(500).json({ error: 'Error creating' })
+      res.status(500).json({ error: error.message })
       console.log(error)
     }
   }
