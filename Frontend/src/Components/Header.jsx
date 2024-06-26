@@ -24,6 +24,13 @@ const Header = () => {
               </Link>
             </Nav.Item>
           </Nav>
+          <Nav className="me-auto" >
+            <Nav.Item style={{ marginRight: 15 }}>
+              <Link to={'/list'} style={{ textDecoration: 'none' }}>
+                listado PQRS
+              </Link>
+            </Nav.Item>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
